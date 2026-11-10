@@ -11,7 +11,28 @@
     "href": "posts/fbs-rushing-yards-elite/fbs-rushing-yards-elite.html",
     "title": "Run the Dang Ball!",
     "section": "",
-    "text": "This is a story about running the ball. We are seeing if running the ball is nessicarry to win games."
+    "text": "This is a story about running the ball. We are seeing if running the ball is needed to win games."
+  },
+  {
+    "objectID": "posts/fbs-rushing-yards-elite/fbs-rushing-yards-elite.html#chart-1-rushing-yards-vs.-wins",
+    "href": "posts/fbs-rushing-yards-elite/fbs-rushing-yards-elite.html#chart-1-rushing-yards-vs.-wins",
+    "title": "Run the Dang Ball!",
+    "section": "Chart 1: Rushing yards vs. wins",
+    "text": "Chart 1: Rushing yards vs. wins\n\n\nCode\nggplot(chart1, aes(x = rush_ypg, y = wins)) +\n  geom_point(color = \"steelblue\", size = 2.5, alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"firebrick\", formula = y ~ x) +\n  geom_point(data = label1, color = \"navy\", size = 3) +\n  geom_text_repel(data = label1, aes(label = team),\n                  size = 3.6, fontface = \"bold\", box.padding = 0.5,\n                  min.segment.length = 0, max.overlaps = Inf, seed = 42) +\n  annotate(\"text\", x = max(chart1$rush_ypg), y = 0.5, hjust = 1,\n           fontface = \"bold\", label = paste0(\"Correlation (r) = \", round(r, 2))) +\n  labs(title = \"Rushing Yards per Game vs. Wins (2025 FBS Season)\",\n       x = \"Rushing Yards per Game\",\n       y = \"Wins\")"
+  },
+  {
+    "objectID": "posts/fbs-rushing-yards-elite/fbs-rushing-yards-elite.html#chart-2-elite-vs.-losing-teams",
+    "href": "posts/fbs-rushing-yards-elite/fbs-rushing-yards-elite.html#chart-2-elite-vs.-losing-teams",
+    "title": "Run the Dang Ball!",
+    "section": "Chart 2: Elite vs. losing teams",
+    "text": "Chart 2: Elite vs. losing teams\n\n\nCode\nggplot(chart2, aes(x = record_group, y = avg_rush_ypg, fill = record_group)) +\n  geom_col(width = 0.6, show.legend = FALSE) +\n  geom_text(aes(label = paste0(round(avg_rush_ypg, 1), \" yds/game\\n(\", teams, \" teams)\")),\n            vjust = -0.4, fontface = \"bold\") +\n  scale_fill_manual(values = c(\"Elite (10+ wins)\" = \"forestgreen\",\n                               \"Losing record\"    = \"firebrick\")) +\n  scale_y_continuous(expand = expansion(mult = c(0, 0.18))) +\n  labs(title = \"Average Rushing Yards per Game: Elite vs. Losing Teams (2025 FBS)\",\n       x = \"Team Record Group\",\n       y = \"Average Rushing Yards per Game\")"
+  },
+  {
+    "objectID": "posts/fbs-rushing-yards-elite/fbs-rushing-yards-elite.html#chart-3-rushing-offense-vs.-defense-bubble-chart",
+    "href": "posts/fbs-rushing-yards-elite/fbs-rushing-yards-elite.html#chart-3-rushing-offense-vs.-defense-bubble-chart",
+    "title": "Run the Dang Ball!",
+    "section": "Chart 3: Rushing offense vs. defense (bubble chart)",
+    "text": "Chart 3: Rushing offense vs. defense (bubble chart)\n\n\nCode\nggplot() +\n  geom_point(data = chart3,\n             aes(x = rush_ypg, y = def_ypg, size = wins, fill = record_group),\n             shape = 21, color = \"white\", alpha = 0.7) +\n  geom_text_repel(data = label3,\n                  aes(x = rush_ypg, y = def_ypg, label = team),\n                  size = 3.6, fontface = \"bold\", box.padding = 0.6,\n                  min.segment.length = 0, max.overlaps = Inf, seed = 42) +\n  scale_size_continuous(range = c(1.5, 10), breaks = c(4, 8, 12, 16),\n                        name = \"Total Wins\") +\n  scale_fill_manual(name = \"Record\",\n                    values = c(\"Elite (10+ wins)\" = \"forestgreen\",\n                               \"Middle\"           = \"gray65\",\n                               \"Losing record\"    = \"firebrick\")) +\n  guides(fill = guide_legend(override.aes = list(size = 5))) +\n  labs(title = \"Rushing Offense vs. Defense, Sized by Total Wins (2025 FBS Season)\",\n       x = \"Rushing Yards per Game\",\n       y = def_label)"
   },
   {
     "objectID": "posts/welcome/index.html",
