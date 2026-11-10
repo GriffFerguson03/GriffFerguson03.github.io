@@ -35,13 +35,6 @@
     "text": "Chart 3: Rushing offense vs. defense (bubble chart)\n\n\nCode\nggplot() +\n  geom_point(data = chart3,\n             aes(x = rush_ypg, y = def_ypg, size = wins, fill = record_group),\n             shape = 21, color = \"white\", alpha = 0.7) +\n  geom_text_repel(data = label3,\n                  aes(x = rush_ypg, y = def_ypg, label = team),\n                  size = 3.6, fontface = \"bold\", box.padding = 0.6,\n                  min.segment.length = 0, max.overlaps = Inf, seed = 42) +\n  scale_size_continuous(range = c(1.5, 10), breaks = c(4, 8, 12, 16),\n                        name = \"Total Wins\") +\n  scale_fill_manual(name = \"Record\",\n                    values = c(\"Elite (10+ wins)\" = \"forestgreen\",\n                               \"Middle\"           = \"gray65\",\n                               \"Losing record\"    = \"firebrick\")) +\n  guides(fill = guide_legend(override.aes = list(size = 5))) +\n  labs(title = \"Rushing Offense vs. Defense, Sized by Total Wins (2025 FBS Season)\",\n       x = \"Rushing Yards per Game\",\n       y = def_label)"
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
     "objectID": "posts/post-with-code/index.html",
     "href": "posts/post-with-code/index.html",
     "title": "Post With Code",
@@ -49,17 +42,17 @@
     "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
   },
   {
-    "objectID": "posts/fbs-rushing-yards-elite.html",
-    "href": "posts/fbs-rushing-yards-elite.html",
-    "title": "Run the Dang Ball!",
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
     "section": "",
-    "text": "This is a story about running the ball. We are seeing if running the ball is nessicarry to win games."
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SportsBlog03",
     "section": "",
-    "text": "Run the Dang Ball!\n\n\n\n\n\n\n\n\nNov 13, 2026\n\n\nGryphon Ferguson\n\n\n\n\n\n\n\n\n\n\n\n\nRun the Dang Ball!\n\n\n\n\n\n\n\n\nNov 13, 2026\n\n\nGryphon Ferguson\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nNov 10, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 7, 2026\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+    "text": "Run the Dang Ball!\n\n\n\n\n\n\n\n\nNov 13, 2026\n\n\nGryphon Ferguson\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nNov 10, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 7, 2026\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
   }
 ]
