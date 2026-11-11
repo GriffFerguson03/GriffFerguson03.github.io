@@ -413,13 +413,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">color =</span> <span class="st">"#E41C38"</span>),</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#FDF2D0"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#EADFC0"</span>),</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">color =</span> <span class="st">"#E41C38"</span>),</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -477,37 +476,723 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> middle, <span class="fu">aes</span>(<span class="at">x =</span> rush_ypg, <span class="at">y =</span> def_ypg_allowed, <span class="at">size =</span> wins),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"#8C8C8C"</span>, <span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> losing, <span class="fu">aes</span>(<span class="at">x =</span> rush_ypg, <span class="at">y =</span> def_ypg_allowed, <span class="at">size =</span> wins),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"#2B2B2B"</span>, <span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> elite, <span class="fu">aes</span>(<span class="at">x =</span> rush_ypg, <span class="at">y =</span> def_ypg_allowed, <span class="at">size =</span> wins),</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"#E41C38"</span>, <span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> standouts, <span class="fu">aes</span>(<span class="at">x =</span> rush_ypg, <span class="at">y =</span> def_ypg_allowed, <span class="at">label =</span> team)) <span class="sc">+</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">8</span>)) <span class="sc">+</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Powerful rushing offenses cluster with high win totals"</span>,</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Elite teams average 187 rushing yards per game, compared with 142 for teams with losing records</span><span class="sc">\n</span><span class="st">Bubble size = total wins</span><span class="sc">\n</span><span class="st">Scarlet = elite (10+ wins), gray = middle, black = losing record"</span>,</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Rushing Yards per Game"</span>,</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total Yards Allowed per Game (lower = better defense)"</span>,</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"By: Gryphon Ferguson | Source: 2025 FBS season data"</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">color =</span> <span class="st">"#E41C38"</span>),</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>elite_offense <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">team =</span> <span class="st">"Team"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">rush_ypg =</span> <span class="st">"Rush YPG"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">def_ypg_allowed =</span> <span class="st">"Yards Allowed YPG"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">wins =</span> <span class="st">"Wins"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">losses =</span> <span class="st">"Losses"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Most Elite Teams Ran the Ball, but a Few Won Without It"</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"2025 FBS teams with 10+ wins. 20 of 25 rushed for more than the FBS average of 158 yards per game. Navy led at 285.6, while Alabama won 11 games on just 104.1."</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">c</span>(rush_ypg, def_ypg_allowed),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">decimals =</span> <span class="dv">1</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"title"</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"subtitle"</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">source_note =</span> <span class="fu">md</span>(<span class="st">"**By:** Gryphon Ferguson  |  **Source:** 2025 FBS season data"</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(<span class="at">columns =</span> <span class="fu">everything</span>()),</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_borders</span>(<span class="at">sides =</span> <span class="st">"bottom"</span>, <span class="at">weight =</span> <span class="fu">px</span>(<span class="dv">3</span>)),</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">opt_row_striping</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">opt_table_lines</span>(<span class="st">"none"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"#00205B"</span>),</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(<span class="at">rows =</span> team <span class="sc">==</span> <span class="st">"Navy"</span>)</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"#CC0000"</span>),</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(<span class="at">rows =</span> team <span class="sc">==</span> <span class="st">"Utah"</span>)</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"#990000"</span>),</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(<span class="at">rows =</span> team <span class="sc">==</span> <span class="st">"Indiana"</span>)</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"#9E1B32"</span>),</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(<span class="at">rows =</span> team <span class="sc">==</span> <span class="st">"Alabama"</span>)</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="fbs-rushing-yards-elite_files/figure-html/chart3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div id="dcphqhibid" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dcphqhibid table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#dcphqhibid thead, #dcphqhibid tbody, #dcphqhibid tfoot, #dcphqhibid tr, #dcphqhibid td, #dcphqhibid th {
+  border-style: none;
+}
+
+#dcphqhibid p {
+  margin: 0;
+  padding: 0;
+}
+
+#dcphqhibid .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dcphqhibid .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dcphqhibid .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dcphqhibid .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dcphqhibid .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dcphqhibid .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dcphqhibid .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dcphqhibid .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dcphqhibid .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dcphqhibid .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dcphqhibid .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dcphqhibid .gt_column_spanner {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dcphqhibid .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dcphqhibid .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#dcphqhibid .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dcphqhibid .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dcphqhibid .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dcphqhibid .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: none;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dcphqhibid .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dcphqhibid .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#dcphqhibid .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#dcphqhibid .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dcphqhibid .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dcphqhibid .gt_first_summary_row {
+  border-top-style: none;
+  border-top-color: #D3D3D3;
+}
+
+#dcphqhibid .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#dcphqhibid .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dcphqhibid .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dcphqhibid .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: none;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dcphqhibid .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: none;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dcphqhibid .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#dcphqhibid .gt_table_body {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dcphqhibid .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dcphqhibid .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dcphqhibid .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dcphqhibid .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dcphqhibid .gt_left {
+  text-align: left;
+}
+
+#dcphqhibid .gt_center {
+  text-align: center;
+}
+
+#dcphqhibid .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dcphqhibid .gt_font_normal {
+  font-weight: normal;
+}
+
+#dcphqhibid .gt_font_bold {
+  font-weight: bold;
+}
+
+#dcphqhibid .gt_font_italic {
+  font-style: italic;
+}
+
+#dcphqhibid .gt_super {
+  font-size: 65%;
+}
+
+#dcphqhibid .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#dcphqhibid .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#dcphqhibid .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#dcphqhibid .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#dcphqhibid .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#dcphqhibid .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#dcphqhibid .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#dcphqhibid .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#dcphqhibid div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="5" class="gt_heading gt_title gt_font_normal" style="text-align: left; color: #000000; font-weight: bold;">Most Elite Teams Ran the Ball, but a Few Won Without It</td>
+</tr>
+<tr class="gt_heading even">
+<td colspan="5" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="text-align: left; color: #000000;">2025 FBS teams with 10+ wins. 20 of 25 rushed for more than the FBS average of 158 yards per game. Navy led at 285.6, while Alabama won 11 games on just 104.1.</td>
+</tr>
+<tr class="gt_col_headings header">
+<th id="team" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Team</th>
+<th id="rush_ypg" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Rush YPG</th>
+<th id="def_ypg_allowed" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Yards Allowed YPG</th>
+<th id="wins" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Wins</th>
+<th id="losses" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Losses</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="team" style="background-color: #00205B; color: #FFFFFF">Navy</td>
+<td class="gt_row gt_right" headers="rush_ypg" style="background-color: #00205B; color: #FFFFFF">285.6</td>
+<td class="gt_row gt_right" headers="def_ypg_allowed" style="background-color: #00205B; color: #FFFFFF">371.3</td>
+<td class="gt_row gt_right" headers="wins" style="background-color: #00205B; color: #FFFFFF">11</td>
+<td class="gt_row gt_right" headers="losses" style="background-color: #00205B; color: #FFFFFF">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="team" style="background-color: #CC0000; color: #FFFFFF">Utah</td>
+<td class="gt_row gt_right gt_striped" headers="rush_ypg" style="background-color: #CC0000; color: #FFFFFF">266.3</td>
+<td class="gt_row gt_right gt_striped" headers="def_ypg_allowed" style="background-color: #CC0000; color: #FFFFFF">359.0</td>
+<td class="gt_row gt_right gt_striped" headers="wins" style="background-color: #CC0000; color: #FFFFFF">11</td>
+<td class="gt_row gt_right gt_striped" headers="losses" style="background-color: #CC0000; color: #FFFFFF">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="team">James Madison</td>
+<td class="gt_row gt_right" headers="rush_ypg">241.5</td>
+<td class="gt_row gt_right" headers="def_ypg_allowed">266.6</td>
+<td class="gt_row gt_right" headers="wins">12</td>
+<td class="gt_row gt_right" headers="losses">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="team">Old Dominion</td>
+<td class="gt_row gt_right gt_striped" headers="rush_ypg">238.3</td>
+<td class="gt_row gt_right gt_striped" headers="def_ypg_allowed">331.5</td>
+<td class="gt_row gt_right gt_striped" headers="wins">10</td>
+<td class="gt_row gt_right gt_striped" headers="losses">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="team" style="background-color: #990000; color: #FFFFFF">Indiana</td>
+<td class="gt_row gt_right" headers="rush_ypg" style="background-color: #990000; color: #FFFFFF">212.9</td>
+<td class="gt_row gt_right" headers="def_ypg_allowed" style="background-color: #990000; color: #FFFFFF">266.0</td>
+<td class="gt_row gt_right" headers="wins" style="background-color: #990000; color: #FFFFFF">16</td>
+<td class="gt_row gt_right" headers="losses" style="background-color: #990000; color: #FFFFFF">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="team">Western Michigan</td>
+<td class="gt_row gt_right gt_striped" headers="rush_ypg">204.2</td>
+<td class="gt_row gt_right gt_striped" headers="def_ypg_allowed">305.5</td>
+<td class="gt_row gt_right gt_striped" headers="wins">10</td>
+<td class="gt_row gt_right gt_striped" headers="losses">4</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="team">Notre Dame</td>
+<td class="gt_row gt_right" headers="rush_ypg">203.4</td>
+<td class="gt_row gt_right" headers="def_ypg_allowed">313.5</td>
+<td class="gt_row gt_right" headers="wins">10</td>
+<td class="gt_row gt_right" headers="losses">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="team">Oregon</td>
+<td class="gt_row gt_right gt_striped" headers="rush_ypg">198.6</td>
+<td class="gt_row gt_right gt_striped" headers="def_ypg_allowed">273.7</td>
+<td class="gt_row gt_right gt_striped" headers="wins">13</td>
+<td class="gt_row gt_right gt_striped" headers="losses">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="team">UNLV</td>
+<td class="gt_row gt_right" headers="rush_ypg">195.5</td>
+<td class="gt_row gt_right" headers="def_ypg_allowed">419.1</td>
+<td class="gt_row gt_right" headers="wins">10</td>
+<td class="gt_row gt_right" headers="losses">4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="team">North Texas</td>
+<td class="gt_row gt_right gt_striped" headers="rush_ypg">194.4</td>
+<td class="gt_row gt_right gt_striped" headers="def_ypg_allowed">381.9</td>
+<td class="gt_row gt_right gt_striped" headers="wins">12</td>
+<td class="gt_row gt_right gt_striped" headers="losses">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="team">Texas A&amp;M</td>
+<td class="gt_row gt_right" headers="rush_ypg">184.7</td>
+<td class="gt_row gt_right" headers="def_ypg_allowed">307.4</td>
+<td class="gt_row gt_right" headers="wins">11</td>
+<td class="gt_row gt_right" headers="losses">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="team">Texas Tech</td>
+<td class="gt_row gt_right gt_striped" headers="rush_ypg">182.9</td>
+<td class="gt_row gt_right gt_striped" headers="def_ypg_allowed">258.3</td>
+<td class="gt_row gt_right gt_striped" headers="wins">12</td>
+<td class="gt_row gt_right gt_striped" headers="losses">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="team">Georgia</td>
+<td class="gt_row gt_right" headers="rush_ypg">182.1</td>
+<td class="gt_row gt_right" headers="def_ypg_allowed">298.0</td>
+<td class="gt_row gt_right" headers="wins">12</td>
+<td class="gt_row gt_right" headers="losses">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="team">Virginia</td>
+<td class="gt_row gt_right gt_striped" headers="rush_ypg">178.7</td>
+<td class="gt_row gt_right gt_striped" headers="def_ypg_allowed">309.5</td>
+<td class="gt_row gt_right gt_striped" headers="wins">11</td>
+<td class="gt_row gt_right gt_striped" headers="losses">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="team">Houston</td>
+<td class="gt_row gt_right" headers="rush_ypg">178.1</td>
+<td class="gt_row gt_right" headers="def_ypg_allowed">347.8</td>
+<td class="gt_row gt_right" headers="wins">10</td>
+<td class="gt_row gt_right" headers="losses">3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="team">BYU</td>
+<td class="gt_row gt_right gt_striped" headers="rush_ypg">178.1</td>
+<td class="gt_row gt_right gt_striped" headers="def_ypg_allowed">332.4</td>
+<td class="gt_row gt_right gt_striped" headers="wins">12</td>
+<td class="gt_row gt_right gt_striped" headers="losses">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="team">Ole Miss</td>
+<td class="gt_row gt_right" headers="rush_ypg">176.3</td>
+<td class="gt_row gt_right" headers="def_ypg_allowed">348.0</td>
+<td class="gt_row gt_right" headers="wins">13</td>
+<td class="gt_row gt_right" headers="losses">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="team">Vanderbilt</td>
+<td class="gt_row gt_right gt_striped" headers="rush_ypg">175.5</td>
+<td class="gt_row gt_right gt_striped" headers="def_ypg_allowed">357.5</td>
+<td class="gt_row gt_right gt_striped" headers="wins">10</td>
+<td class="gt_row gt_right gt_striped" headers="losses">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="team">Tulane</td>
+<td class="gt_row gt_right" headers="rush_ypg">166.3</td>
+<td class="gt_row gt_right" headers="def_ypg_allowed">384.2</td>
+<td class="gt_row gt_right" headers="wins">11</td>
+<td class="gt_row gt_right" headers="losses">3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="team">Kennesaw State</td>
+<td class="gt_row gt_right gt_striped" headers="rush_ypg">159.4</td>
+<td class="gt_row gt_right gt_striped" headers="def_ypg_allowed">404.6</td>
+<td class="gt_row gt_right gt_striped" headers="wins">10</td>
+<td class="gt_row gt_right gt_striped" headers="losses">4</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="team">Ohio State</td>
+<td class="gt_row gt_right" headers="rush_ypg">154.4</td>
+<td class="gt_row gt_right" headers="def_ypg_allowed">219.1</td>
+<td class="gt_row gt_right" headers="wins">12</td>
+<td class="gt_row gt_right" headers="losses">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="team">Miami (FL)</td>
+<td class="gt_row gt_right gt_striped" headers="rush_ypg">151.8</td>
+<td class="gt_row gt_right gt_striped" headers="def_ypg_allowed">294.1</td>
+<td class="gt_row gt_right gt_striped" headers="wins">13</td>
+<td class="gt_row gt_right gt_striped" headers="losses">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="team">Texas</td>
+<td class="gt_row gt_right" headers="rush_ypg">137.8</td>
+<td class="gt_row gt_right" headers="def_ypg_allowed">338.8</td>
+<td class="gt_row gt_right" headers="wins">10</td>
+<td class="gt_row gt_right" headers="losses">3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="team">Oklahoma</td>
+<td class="gt_row gt_right gt_striped" headers="rush_ypg">118.5</td>
+<td class="gt_row gt_right gt_striped" headers="def_ypg_allowed">272.5</td>
+<td class="gt_row gt_right gt_striped" headers="wins">10</td>
+<td class="gt_row gt_right gt_striped" headers="losses">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="team" style="background-color: #9E1B32; color: #FFFFFF">Alabama</td>
+<td class="gt_row gt_right" headers="rush_ypg" style="background-color: #9E1B32; color: #FFFFFF">104.1</td>
+<td class="gt_row gt_right" headers="def_ypg_allowed" style="background-color: #9E1B32; color: #FFFFFF">296.8</td>
+<td class="gt_row gt_right" headers="wins" style="background-color: #9E1B32; color: #FFFFFF">11</td>
+<td class="gt_row gt_right" headers="losses" style="background-color: #9E1B32; color: #FFFFFF">4</td>
+</tr>
+</tbody><tfoot>
+<tr class="gt_sourcenotes odd">
+<td colspan="5" class="gt_sourcenote"><strong>By:</strong> Gryphon Ferguson | <strong>Source:</strong> 2025 FBS season data</td>
+</tr>
+</tfoot>
+
+</table>
+
 </div>
 </div>
 </div>
